@@ -1,0 +1,19 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it using the metadata below."
+title: "HIV NFLG Variation Analysis"
+type: software
+authors:
+  - family-names: "Liu"
+    given-names: "Hongyi"
+version: "1.0.0"
+date-released: "2026-08-25"
+doi: "10.5281/zenodo.22091333"
+repository-code: "https://github.com/lhy19960808/HIV-NFLG-variation-analysis"
+keywords:
+  - HIV-1
+  - near-full-length genome
+  - within-host variation
+  - HXB2
+  - SNP
+  - indel
+  - bioinformatics

@@ -1,5 +1,7 @@
 # HIV-1 NFLG Within-Host Variation Analysis
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.22091333.svg)](https://doi.org/10.5281/zenodo.22091333)
+
 ## Overview
 
 This repository contains the reproducible analysis pipeline used to characterize within-host nucleotide variation among HIV-1 near-full-length genome (NFLG) clone sequences.
