@@ -1,0 +1,13 @@
+Check	Value	Status
+Patient_panel_n	11	PASS
+Maximum_stacked_SNP_height	15	INFO
+Common_y_axis_max	25.0	INFO
+SNP_bar_width	0.55	INFO
+DEL_marker_size	13	INFO
+INS_marker_size	15	INFO
+Event_count_labels_drawn	45	INFO
+No_unique_point_markers_drawn	43	INFO
+Unresolved_hex_bands_drawn	7	INFO
+SVG_created	figure_output/figure1/Figure1_patient_mutation_landscape.svg	PASS
+PDF_created	figure_output/figure1/Figure1_patient_mutation_landscape.pdf	PASS
+PNG_created	figure_output/figure1/Figure1_patient_mutation_landscape.png	PASS

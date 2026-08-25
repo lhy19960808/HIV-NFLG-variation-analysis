@@ -1,0 +1,9 @@
+Check	Value	Status
+Input_SNP_rows	1047	PASS
+Input_total_clone_calls	2477	PASS
+Output_loci_or_anchors	980	PASS
+Output_total_clone_calls	2477	PASS
+Recurrent_loci_total_clone_calls_ge2	567	INFO
+Maximum_stacked_height	12	INFO
+Excluded_P17_no_unique_consensus	YES	PASS
+Excluded_P18_missing_region	YES	PASS

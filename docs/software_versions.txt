@@ -1,0 +1,10 @@
+Software versions used for the final analysis release
+
+Python: 3.14.6
+MAFFT: 7.526
+Matplotlib: 3.11.1
+
+Primary Conda environment: hiv_nflg
+
+The core analysis scripts use the Python standard library.
+Figure-generation scripts additionally require Matplotlib.

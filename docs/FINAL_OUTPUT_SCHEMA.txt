@@ -1,0 +1,684 @@
+FINAL OUTPUT SCHEMA
+
+======================================================================
+step02_patient_consensus
+======================================================================
+
+----- 01_analysis_consensus_summary.tsv -----
+     1	Patient
+     2	Clone_n
+     3	MSA_length
+     4	SnapGene_consensus_name
+     5	SnapGene_N_total_n
+     6	SnapGene_N_resolved_to_base_n
+     7	SnapGene_N_resolved_to_gap_n
+     8	SnapGene_N_remained_no_unique_n
+     9	SnapGene_N_remained_low_coverage_n
+    10	Analysis_consensus_base_column_n
+    11	Analysis_consensus_gap_column_n
+    12	Analysis_consensus_no_unique_N_column_n
+    13	Analysis_consensus_low_coverage_N_column_n
+    14	Analysis_consensus_zero_callable_N_column_n
+
+----- 02_snapgene_N_resolution.tsv -----
+     1	Patient
+     2	MSA_col
+     3	HXB2_coordinate
+     4	Column_type
+     5	Gene
+     6	SnapGene_consensus
+     7	Clone_n
+     8	A_n
+     9	C_n
+    10	G_n
+    11	T_n
+    12	Gap_n
+    13	Missing_or_terminal_n
+    14	Callable_n
+    15	Callable_fraction
+    16	Major_state
+    17	Major_n
+    18	Major_fraction_of_all_clones
+    19	Major_fraction_of_callable
+    20	Analysis_consensus
+    21	Reason
+
+----- 03_snapgene_vs_analysis_consensus_differences.tsv -----
+     1	Patient
+     2	MSA_col
+     3	HXB2_coordinate
+     4	Column_type
+     5	Gene
+     6	SnapGene_consensus
+     7	Analysis_consensus
+     8	Reason
+     9	Clone_n
+    10	A_n
+    11	C_n
+    12	G_n
+    13	T_n
+    14	Gap_n
+    15	Missing_or_terminal_n
+    16	Callable_n
+    17	Callable_fraction
+    18	Major_state
+    19	Major_n
+    20	Major_fraction_of_all_clones
+    21	Major_fraction_of_callable
+
+----- 04_no_unique_consensus_sites.tsv -----
+     1	Patient
+     2	MSA_col
+     3	HXB2_coordinate
+     4	Column_type
+     5	Gene
+     6	Clone_n
+     7	A_n
+     8	C_n
+     9	G_n
+    10	T_n
+    11	Gap_n
+    12	Missing_or_terminal_n
+    13	Callable_n
+    14	Callable_fraction
+    15	Major_state
+    16	Major_n
+    17	Major_fraction_of_all_clones
+    18	Major_fraction_of_callable
+    19	No_unique_type
+
+----- 05_insufficient_callable_coverage_sites.tsv -----
+     1	Patient
+     2	MSA_col
+     3	HXB2_coordinate
+     4	Column_type
+     5	Gene
+     6	Clone_n
+     7	A_n
+     8	C_n
+     9	G_n
+    10	T_n
+    11	Gap_n
+    12	Missing_or_terminal_n
+    13	Callable_n
+    14	Callable_fraction
+    15	Major_state
+    16	Major_n
+    17	Major_fraction_of_all_clones
+    18	Major_fraction_of_callable
+    19	Analysis_consensus
+    20	Reason
+
+======================================================================
+step03_mutation_calls
+======================================================================
+
+----- 01_clone_mutation_calls.tsv -----
+     1	Patient
+     2	Clone
+     3	MSA_col
+     4	HXB2_coordinate
+     5	Column_type
+     6	HXB2_gene_mapping_position
+     7	HXB2_insertion_anchor
+     8	Gene
+     9	Analysis_consensus_state
+    10	Clone_raw_state
+    11	Clone_interpreted_state
+    12	Clone_state_source
+    13	Mutation_type
+    14	Change
+
+----- 02_indel_events.tsv -----
+     1	Patient
+     2	Clone
+     3	Event_type
+     4	Event_index_within_clone
+     5	MSA_start
+     6	MSA_end
+     7	HXB2_start_coordinate
+     8	HXB2_end_coordinate
+     9	Genes
+    10	Event_length_alignment_columns
+    11	HXB2_base_column_n
+    12	HXB2_relative_insertion_column_n
+    13	Raw_clone_N_as_DEL_column_n
+    14	Event_locus_key
+
+----- 03_patient_mutation_summary.tsv -----
+     1	Patient
+     2	Clone_n
+     3	SNP_clone_call_n_all_alignment_columns
+     4	SNP_unique_site_n_all_alignment_columns
+     5	SNP_clone_call_n_HXB2_base_only
+     6	SNP_unique_site_n_HXB2_base_only
+     7	DEL_base_call_n
+     8	DEL_event_occurrence_n
+     9	DEL_unique_event_locus_n
+    10	INS_base_call_n
+    11	INS_event_occurrence_n
+    12	INS_unique_event_locus_n
+    13	Clone_N_as_DEL_base_call_n
+    14	Clone_N_as_DEL_event_occurrence_n
+    15	Consensus_no_unique_column_n
+    16	Consensus_low_coverage_column_n
+    17	Consensus_zero_callable_column_n
+
+----- 04_HXB2_base_position_mutation_counts.tsv -----
+     1	HXB2_position
+     2	Gene
+     3	SNP_clone_call_n
+     4	SNP_variant_clone_n
+     5	SNP_variant_patient_n
+     6	DEL_clone_call_n
+     7	DEL_variant_clone_n
+     8	DEL_variant_patient_n
+     9	INS_clone_call_n
+    10	INS_variant_clone_n
+    11	INS_variant_patient_n
+
+----- 05_HXB2_relative_insertion_event_counts.tsv -----
+     1	HXB2_insertion_anchor
+     2	Plot_x
+     3	Gene
+     4	INS_event_occurrence_n
+     5	INS_variant_clone_n
+     6	INS_variant_patient_n
+     7	INS_total_inserted_base_n
+     8	INS_min_event_length
+     9	INS_max_event_length
+
+----- 06_clone_N_as_DEL_QC.tsv -----
+     1	Patient
+     2	Clone
+     3	Raw_clone_N_total_n
+     4	Raw_clone_N_called_as_DEL_n
+     5	QC
+
+----- 07_mutation_calling_QC.tsv -----
+     1	Patient
+     2	Clone_n
+     3	MSA_length
+     4	Alignment_and_consensus_length_QC
+
+======================================================================
+step04a_mapping_bridge
+======================================================================
+
+----- 01_mapping_consensus_summary.tsv -----
+     1	Patient
+     2	Clone_n
+     3	Original_patient_MSA_length
+     4	Mapping_consensus_length
+     5	Analysis_consensus_base_columns
+     6	No_unique_base_only_columns_retained_as_N
+     7	Consensus_gap_columns_excluded
+     8	No_unique_structural_columns_excluded
+     9	Low_coverage_columns_excluded
+    10	No_callable_columns_excluded
+
+----- 02_original_MSA_column_consensus_index.tsv -----
+     1	Patient
+     2	Original_patient_MSA_column
+     3	Analysis_consensus_state
+     4	Consensus_reason
+     5	Callable_clone_n
+     6	Total_clone_n
+     7	Callable_fraction
+     8	Callable_state_counts
+     9	Mapping_consensus_position
+    10	Mapping_inclusion_class
+
+======================================================================
+step04b_hxb2_mapping
+======================================================================
+
+----- 01_mapping_consensus_to_HXB2.tsv -----
+     1	Patient
+     2	Mapping_consensus_position
+     3	Pairwise_alignment_column
+     4	Mapping_consensus_base
+     5	HXB2_state
+     6	HXB2_coordinate
+     7	Coordinate_class
+     8	HXB2_anchor
+     9	Plot_coordinate
+
+----- 02_patient_HXB2_range_summary.tsv -----
+     1	Patient
+     2	Mapping_consensus_length
+     3	HXB2_start
+     4	HXB2_end
+     5	HXB2_span
+     6	HXB2_gap_columns_n
+     7	Query_bases_at_HXB2_gap_n
+     8	HXB2_bases_at_query_gap_n
+     9	Identity_ACGT_only
+
+----- 07_addfragments_alignment_QC.tsv -----
+     1	Patient
+     2	Mapping_consensus_length
+     3	Addfragments_alignment_length
+     4	HXB2_gap_columns_n
+     5	Query_gap_columns_n
+     6	HXB2_start
+     7	HXB2_end
+     8	HXB2_span
+     9	Aligned_ACGT_pair_n
+    10	Exact_match_n
+    11	Identity_ACGT_only
+    12	Query_bases_at_HXB2_gap_n
+    13	HXB2_bases_at_query_gap_n
+    14	HXB2_sequence_integrity
+    15	Query_sequence_integrity
+
+======================================================================
+step05_final_mutation_projection
+======================================================================
+
+----- 01_final_clone_mutation_calls.tsv -----
+     1	Patient
+     2	Clone
+     3	Original_patient_MSA_column
+     4	Mutation_type
+     5	SNP_type
+     6	Consensus_allele
+     7	Clone_allele
+     8	Final_HXB2_coordinate
+     9	Final_coordinate_class
+    10	Final_HXB2_anchor
+    11	Final_plot_coordinate
+    12	Final_genes
+    13	Coordinate_source
+    14	Projection_status
+    15	Analysis_consensus_state_at_MSA_column
+    16	Analysis_consensus_reason
+    17	Mapping_inclusion_class
+    18	Gap_block_ID
+    19	Gap_block_start_MSA_column
+    20	Gap_block_end_MSA_column
+    21	Gap_block_length_alignment_columns
+    22	Insertion_alignment_rank_in_gap_block
+    23	Left_flank_MSA_column
+    24	Left_flank_HXB2_coordinate
+    25	Right_flank_MSA_column
+    26	Right_flank_HXB2_coordinate
+    27	Coordinate_precision
+
+----- 02_final_indel_events.tsv -----
+     1	Patient
+     2	Clone
+     3	Event_ID
+     4	Event_type
+     5	Start_original_MSA_column
+     6	End_original_MSA_column
+     7	Event_length_bp
+     8	Start_HXB2_coordinate
+     9	End_HXB2_coordinate
+    10	Event_HXB2_locus
+    11	Plot_coordinate
+    12	Genes
+    13	Projection_status
+    14	Constituent_projection_statuses
+
+----- 03_projection_QC.tsv -----
+     1	Check
+     2	Observed
+     3	Expected
+     4	Status
+
+----- 04_insertion_block_QC.tsv -----
+     1	Patient
+     2	Gap_block_ID
+     3	Gap_block_start_MSA_column
+     4	Gap_block_end_MSA_column
+     5	Gap_block_length_alignment_columns
+     6	Left_flank_MSA_column
+     7	Left_flank_HXB2_coordinate
+     8	Right_flank_MSA_column
+     9	Right_flank_HXB2_coordinate
+    10	Insertion_HXB2_anchor
+    11	Insertion_plot_coordinate
+    12	Coordinate_precision
+    13	Block_projection_status
+
+----- 05_review_or_unmapped_calls.tsv -----
+     1	Patient
+     2	Clone
+     3	Original_patient_MSA_column
+     4	Mutation_type
+     5	SNP_type
+     6	Consensus_allele
+     7	Clone_allele
+     8	Final_HXB2_coordinate
+     9	Final_coordinate_class
+    10	Final_HXB2_anchor
+    11	Final_plot_coordinate
+    12	Final_genes
+    13	Coordinate_source
+    14	Projection_status
+    15	Analysis_consensus_state_at_MSA_column
+    16	Analysis_consensus_reason
+    17	Mapping_inclusion_class
+    18	Gap_block_ID
+    19	Gap_block_start_MSA_column
+    20	Gap_block_end_MSA_column
+    21	Gap_block_length_alignment_columns
+    22	Insertion_alignment_rank_in_gap_block
+    23	Left_flank_MSA_column
+    24	Left_flank_HXB2_coordinate
+    25	Right_flank_MSA_column
+    26	Right_flank_HXB2_coordinate
+    27	Coordinate_precision
+
+----- 06_final_patient_HXB2_ranges.tsv -----
+     1	Patient
+     2	Final_HXB2_start
+     3	Final_HXB2_end
+     4	Final_HXB2_span
+     5	Coordinate_framework
+
+----- 07_no_unique_consensus_regions.tsv -----
+     1	Patient
+     2	No_unique_class
+     3	Start_original_MSA_column
+     4	End_original_MSA_column
+     5	Length_alignment_columns
+     6	Left_anchor_HXB2_coordinate
+     7	Right_anchor_HXB2_coordinate
+     8	Display_interval
+
+======================================================================
+step06_patient_plot_tables
+======================================================================
+
+----- 01_patient_plot_ready.tsv -----
+     1	Patient
+     2	Record_type
+     3	Mutation_type
+     4	SNP_type
+     5	Exact_HXB2_coordinate
+     6	HXB2_anchor
+     7	Plot_coordinate
+     8	Coordinate_class
+     9	Count_for_plot
+    10	Variant_clone_n
+    11	Event_n
+    12	Genes
+    13	Display_symbol
+    14	Event_length_bp_values
+    15	Event_IDs
+    16	Projection_status
+
+----- 02_all_patient_plot_ready.tsv -----
+     1	Mutation_type
+     2	SNP_type
+     3	HXB2_locus_or_anchor
+     4	Plot_coordinate
+     5	Patient_n
+     6	Patients
+     7	Total_variant_clone_n
+     8	Total_event_n
+     9	Exact_coordinate_n
+    10	Exact_coordinates
+    11	Genes
+    12	Display_symbol
+    13	Projection_status
+
+----- 03_patient_mutation_summary.tsv -----
+     1	Patient
+     2	SNP_call_n
+     3	DEL_event_n
+     4	INS_event_n
+     5	Total_indel_event_n
+
+----- 04_plot_data_QC.tsv -----
+     1	Check
+     2	Observed
+     3	Expected
+     4	Status
+
+----- 05_patient_panel_metadata.tsv -----
+     1	Patient
+     2	HXB2_start
+     3	HXB2_end
+     4	HXB2_span
+     5	Has_directional_mutation_records
+     6	No_unique_region_n
+
+----- 06_no_unique_consensus_regions.tsv -----
+     1	Patient
+     2	No_unique_class
+     3	Start_original_MSA_column
+     4	End_original_MSA_column
+     5	Length_alignment_columns
+     6	Left_anchor_HXB2_coordinate
+     7	Right_anchor_HXB2_coordinate
+     8	Display_interval
+
+======================================================================
+step07_cross_patient_dataset
+======================================================================
+
+----- 01_SNP_locus_recurrence.tsv -----
+     1	HXB2_locus_or_anchor
+     2	Locus_class
+     3	Plot_coordinate
+     4	Patient_n
+     5	Patients
+     6	Total_variant_clone_n
+     7	Genes
+     8	Exact_coordinate_n
+     9	Exact_coordinates_observed
+    10	Substitution_type_n
+    11	A>C_patient_n
+    12	A>C_clone_n
+    13	A>G_patient_n
+    14	A>G_clone_n
+    15	A>T_patient_n
+    16	A>T_clone_n
+    17	C>A_patient_n
+    18	C>A_clone_n
+    19	C>G_patient_n
+    20	C>G_clone_n
+    21	C>T_patient_n
+    22	C>T_clone_n
+    23	G>A_patient_n
+    24	G>A_clone_n
+    25	G>C_patient_n
+    26	G>C_clone_n
+    27	G>T_patient_n
+    28	G>T_clone_n
+    29	T>A_patient_n
+    30	T>A_clone_n
+    31	T>C_patient_n
+    32	T>C_clone_n
+    33	T>G_patient_n
+    34	T>G_clone_n
+    35	Aggregation_note
+
+----- 02_INDEL_locus_recurrence.tsv -----
+     1	Mutation_type
+     2	HXB2_locus_or_anchor
+     3	Aggregation_class
+     4	Plot_coordinate
+     5	Patient_n
+     6	Patients
+     7	Total_event_n
+     8	Total_variant_clone_n
+     9	Event_length_bp_values
+    10	Genes
+    11	Aggregation_note
+
+----- 03_combined_plot_ready.tsv -----
+     1	Record_type
+     2	Mutation_type
+     3	HXB2_locus_or_anchor
+     4	Locus_class
+     5	Plot_coordinate
+     6	Patient_n
+     7	Patients
+     8	Total_variant_clone_n
+     9	Total_event_n
+    10	Genes
+    11	Primary_plot_metric
+    12	Display_recommendation
+    13	Aggregation_note
+
+----- 04_patient_summary.tsv -----
+     1	Patient
+     2	Clone_n
+     3	Final_HXB2_start
+     4	Final_HXB2_end
+     5	Final_HXB2_span
+     6	Directional_SNP_call_n
+     7	Patient_SNP_locus_type_n
+     8	DEL_event_n
+     9	INS_event_n
+    10	Total_INDEL_event_n
+    11	No_unique_consensus_region_n
+    12	Special_structural_annotation
+
+----- 05_HXB2_mapping_summary.tsv -----
+     1	Patient
+     2	HXB2_start
+     3	HXB2_end
+     4	HXB2_span
+     5	Coordinate_framework
+     6	Mutation_reference
+     7	HXB2_role
+     8	Coordinate_QC_status
+
+----- 06_HXB2_gene_coordinates.tsv -----
+     1	Feature
+     2	HXB2_start
+     3	HXB2_end
+     4	Feature_type
+
+----- 07_special_region_summary.tsv -----
+     1	Patient
+     2	Annotation_type
+     3	HXB2_start
+     4	HXB2_end
+     5	Length_nt_or_alignment_columns
+     6	Coordinate_precision
+     7	Evidence
+     8	Counted_as_clone_vs_consensus_mutation
+     9	Figure_annotation
+
+----- 08_no_unique_consensus_regions.tsv -----
+     1	Patient
+     2	No_unique_class
+     3	Start_original_MSA_column
+     4	End_original_MSA_column
+     5	Length_alignment_columns
+     6	Left_anchor_HXB2_coordinate
+     7	Right_anchor_HXB2_coordinate
+     8	Display_interval
+
+----- 09_large_missing_region_evidence.tsv -----
+     1	Patient
+     2	Annotation_type
+     3	Original_patient_MSA_start
+     4	Original_patient_MSA_end
+     5	Original_patient_MSA_length
+     6	Left_direct_MSA_column
+     7	Left_mapping_consensus_position
+     8	Left_HXB2_flank
+     9	Right_direct_MSA_column
+    10	Right_mapping_consensus_position
+    11	Right_HXB2_flank
+    12	HXB2_missing_start
+    13	HXB2_missing_end
+    14	HXB2_missing_length
+    15	Inferred_HXB2_missing_interval
+    16	Length_check
+    17	Coordinate_method
+    18	Interpretation
+
+----- 10_source_file_manifest.tsv -----
+     1	Source_or_output
+     2	Role
+     3	Status
+
+----- 11_final_data_QC.tsv -----
+     1	Check
+     2	Observed
+     3	Expected
+     4	Status
+
+======================================================================
+step08_figure2_plot_data
+======================================================================
+
+----- 01_figure2_plotting_summary.tsv -----
+     1	Record_type
+     2	Mutation_type
+     3	HXB2_locus_or_anchor
+     4	Locus_class
+     5	Plot_coordinate
+     6	Patient_n
+     7	Patients
+     8	Total_variant_clone_n
+     9	Total_event_n
+    10	Genes
+    11	Recurrent_class
+    12	Substitution_pattern
+    13	Same_substitution_across_all_recurrent_patients
+    14	Substitution_patient_counts
+    15	Exact_coordinates_observed
+    16	Display_priority
+    17	Figure2_role
+    18	Interpretation
+
+----- 02_recurrent_SNP_sites.tsv -----
+     1	Record_type
+     2	Mutation_type
+     3	HXB2_locus_or_anchor
+     4	Locus_class
+     5	Plot_coordinate
+     6	Patient_n
+     7	Patients
+     8	Total_variant_clone_n
+     9	Total_event_n
+    10	Genes
+    11	Recurrent_class
+    12	Substitution_pattern
+    13	Same_substitution_across_all_recurrent_patients
+    14	Substitution_patient_counts
+    15	Exact_coordinates_observed
+    16	Display_priority
+    17	Figure2_role
+    18	Interpretation
+
+----- 03_SNP_recurrence_summary.tsv -----
+     1	Category
+     2	Count
+     3	Definition
+
+----- 04_INDEL_plotting_summary.tsv -----
+     1	Record_type
+     2	Mutation_type
+     3	HXB2_locus_or_anchor
+     4	Locus_class
+     5	Plot_coordinate
+     6	Patient_n
+     7	Patients
+     8	Total_variant_clone_n
+     9	Total_event_n
+    10	Genes
+    11	Recurrent_class
+    12	Substitution_pattern
+    13	Same_substitution_across_all_recurrent_patients
+    14	Substitution_patient_counts
+    15	Exact_coordinates_observed
+    16	Display_priority
+    17	Figure2_role
+    18	Interpretation
+
+----- 05_figure2_plot_QC.tsv -----
+     1	Check
+     2	Observed
+     3	Expected
+     4	Status
+

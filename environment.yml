@@ -1,0 +1,10 @@
+name: hiv_nflg
+
+channels:
+  - conda-forge
+  - bioconda
+
+dependencies:
+  - python=3.14.6
+  - mafft=7.526
+  - matplotlib=3.11.1

@@ -1,0 +1,26 @@
+FINAL FIGURE REPRODUCTION
+
+All-SNP stacked summary: PASS
+Input SNP rows: 1047
+Output loci/anchors: 980
+Total SNP clone calls: 2477
+
+Figure 1: PASS
+Patient panels: 11
+No-unique point markers: 43
+Unresolved structural bands: 7
+
+Figure 2: PASS
+SNP loci/anchors: 973
+Recurrent SNP loci: 52
+Same-substitution recurrent loci: 21
+Mixed-substitution recurrent loci: 31
+Maximum SNP Patient_n: 3
+DEL loci: 32
+INS anchors: 13
+
+SVG/PDF/PNG generation: PASS
+Figure script interface audit: PASS
+Figure script syntax: PASS
+
+FINAL_FIGURE_REPRODUCTION: PASS

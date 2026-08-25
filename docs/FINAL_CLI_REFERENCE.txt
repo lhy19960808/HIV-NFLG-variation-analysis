@@ -1,0 +1,191 @@
+================================================================================
+01_prepare_patient_alignments_help.txt
+================================================================================
+usage: 01_prepare_patient_alignments.py [-h] --input-fasta INPUT_FASTA
+                                        --hxb2-source HXB2_SOURCE
+                                        --output-dir OUTPUT_DIR
+                                        [--threads THREADS] [--mafft MAFFT]
+                                        [--allow-missing-consensus ALLOW_MISSING_CONSENSUS]
+
+Prepare independent patient-specific HIV-1 clone alignments.
+
+options:
+  -h, --help            show this help message and exit
+  --input-fasta INPUT_FASTA
+                        Combined FASTA containing patient clones and optional
+                        manual consensuses.
+  --hxb2-source HXB2_SOURCE
+                        FASTA containing the HXB2 reference sequence.
+  --output-dir OUTPUT_DIR
+                        Output directory.
+  --threads THREADS     Number of MAFFT threads. Default: -1 (automatic/all
+                        available).
+  --mafft MAFFT         MAFFT executable. Default: mafft
+  --allow-missing-consensus ALLOW_MISSING_CONSENSUS
+                        Patient allowed to lack a supplied manual consensus.
+                        May be specified multiple times.
+
+================================================================================
+02_build_patient_consensus_help.txt
+================================================================================
+usage: 02_build_patient_consensus.py [-h] --alignment-dir ALIGNMENT_DIR
+                                     --output-dir OUTPUT_DIR
+
+Build patient-specific analysis consensuses from patient MAFFT alignments.
+
+options:
+  -h, --help            show this help message and exit
+  --alignment-dir ALIGNMENT_DIR
+                        Directory containing per-patient *.mafft.fasta
+                        alignments.
+  --output-dir OUTPUT_DIR
+                        Output directory for consensus FASTA and QC tables.
+
+================================================================================
+03_call_within_patient_mutations_help.txt
+================================================================================
+usage: 03_call_within_patient_mutations.py [-h] --alignment-dir ALIGNMENT_DIR
+                                           --consensus-dir CONSENSUS_DIR
+                                           --output-dir OUTPUT_DIR
+
+Call within-patient SNPs and indels relative to patient-specific analysis
+consensuses.
+
+options:
+  -h, --help            show this help message and exit
+  --alignment-dir ALIGNMENT_DIR
+                        Directory containing per-patient *.mafft.fasta
+                        alignments.
+  --consensus-dir CONSENSUS_DIR
+                        Step 02 output directory containing
+                        analysis_consensus_fasta and consensus QC tables.
+  --output-dir OUTPUT_DIR
+                        Output directory for clone-level mutation calls and QC
+                        tables.
+
+================================================================================
+04a_build_mapping_consensus_bridge_help.txt
+================================================================================
+usage: 04a_build_mapping_consensus_bridge.py [-h]
+                                             --alignment-dir ALIGNMENT_DIR
+                                             --output-dir OUTPUT_DIR
+
+Build patient mapping consensuses and the original-MSA-column bridge for HXB2
+coordinate projection.
+
+options:
+  -h, --help            show this help message and exit
+  --alignment-dir ALIGNMENT_DIR
+                        Directory containing per-patient *.mafft.fasta
+                        alignments.
+  --output-dir OUTPUT_DIR
+                        Output directory for mapping consensuses, bridge
+                        tables, and QC.
+
+================================================================================
+04b_map_patient_consensus_to_HXB2_help.txt
+================================================================================
+usage: 04b_map_patient_consensus_to_HXB2.py [-h] --bridge-dir BRIDGE_DIR
+                                            --hxb2-source HXB2_SOURCE
+                                            --output-dir OUTPUT_DIR
+
+Map patient mapping consensuses independently to HXB2 using MAFFT
+--addfragments.
+
+options:
+  -h, --help            show this help message and exit
+  --bridge-dir BRIDGE_DIR
+                        Step 04A directory containing mapping consensuses and
+                        bridge tables.
+  --hxb2-source HXB2_SOURCE
+                        FASTA containing the HXB2 reference sequence.
+  --output-dir OUTPUT_DIR
+                        Output directory for final patient-specific HXB2
+                        coordinate maps.
+
+================================================================================
+05_project_mutations_to_HXB2_help.txt
+================================================================================
+usage: 05_project_mutations_to_HXB2.py [-h] --mutation-dir MUTATION_DIR
+                                       --bridge-dir BRIDGE_DIR
+                                       --hxb2-map-dir HXB2_MAP_DIR
+                                       --output-dir OUTPUT_DIR
+
+Project clone-vs-patient-consensus SNP/DEL/INS calls onto the final HXB2
+coordinate framework.
+
+options:
+  -h, --help            show this help message and exit
+  --mutation-dir MUTATION_DIR
+                        Clean Step 03 mutation-call output directory.
+  --bridge-dir BRIDGE_DIR
+                        Clean Step 04A mapping-consensus / MSA-column bridge
+                        directory.
+  --hxb2-map-dir HXB2_MAP_DIR
+                        Clean Step 04B final MAFFT --addfragments HXB2 mapping
+                        directory.
+  --output-dir OUTPUT_DIR
+                        Output directory.
+
+================================================================================
+06_prepare_patient_plot_tables_help.txt
+================================================================================
+usage: 06_prepare_patient_plot_tables.py [-h] --projection-dir PROJECTION_DIR
+                                         --output-dir OUTPUT_DIR
+
+Prepare patient-level and combined plotting tables from the validated clean
+mutation projection.
+
+options:
+  -h, --help            show this help message and exit
+  --projection-dir PROJECTION_DIR
+                        Clean Step 05 final mutation-projection directory.
+  --output-dir OUTPUT_DIR
+                        Output directory for final plotting tables.
+
+================================================================================
+07_prepare_cross_patient_dataset_help.txt
+================================================================================
+usage: 07_prepare_cross_patient_dataset.py [-h]
+                                           --projection-dir PROJECTION_DIR
+                                           --plot-table-dir PLOT_TABLE_DIR
+                                           --clone-counts CLONE_COUNTS
+                                           --gene-coordinates GENE_COORDINATES
+                                           --special-regions SPECIAL_REGIONS
+                                           --output-dir OUTPUT_DIR
+
+Prepare the cross-patient mutation dataset from the validated clean mutation-
+projection outputs.
+
+options:
+  -h, --help            show this help message and exit
+  --projection-dir PROJECTION_DIR
+                        Clean Step05 final mutation-projection directory.
+  --plot-table-dir PLOT_TABLE_DIR
+                        Clean Step06 final plotting-table directory.
+  --clone-counts CLONE_COUNTS
+                        Patient clone-count configuration TSV.
+  --gene-coordinates GENE_COORDINATES
+                        HXB2 gene-coordinate configuration TSV.
+  --special-regions SPECIAL_REGIONS
+                        Special structural-region configuration TSV.
+  --output-dir OUTPUT_DIR
+                        Output directory.
+
+================================================================================
+08_prepare_figure2_plot_data_help.txt
+================================================================================
+usage: 08_prepare_figure2_plot_data.py [-h]
+                                       --cross-patient-dir CROSS_PATIENT_DIR
+                                       --output-dir OUTPUT_DIR
+
+Prepare final Figure 2 plotting-summary tables from the validated cross-
+patient dataset.
+
+options:
+  -h, --help            show this help message and exit
+  --cross-patient-dir CROSS_PATIENT_DIR
+                        Clean Step07 cross-patient dataset directory.
+  --output-dir OUTPUT_DIR
+                        Output directory.
+

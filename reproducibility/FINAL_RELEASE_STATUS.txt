@@ -1,0 +1,17 @@
+FINAL HIV NFLG VARIATION ANALYSIS RELEASE
+
+Core analysis pipeline Step01-08: PASS / FROZEN
+Clean-room reproduction: PASS
+Standalone release reproduction: PASS
+Final release QC: PASS
+Independent release QC: PASS
+Core code SHA256 verification: PASS
+Figure reproduction: PASS
+Figure script SHA256 verification: PASS
+Environment dependency resolution: PASS
+Public-interface history/path audit: PASS
+
+Scientific algorithms: FROZEN
+Production interface: FINAL
+
+FINAL_RELEASE_STATUS: PASS

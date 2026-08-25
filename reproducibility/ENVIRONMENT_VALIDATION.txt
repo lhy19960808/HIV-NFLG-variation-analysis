@@ -1,0 +1,8 @@
+FINAL RELEASE ENVIRONMENT VALIDATION
+
+environment.yml dependency resolution: PASS
+Python: 3.14.6
+MAFFT: 7.526
+Matplotlib: 3.11.1
+
+ENVIRONMENT_VALIDATION: PASS

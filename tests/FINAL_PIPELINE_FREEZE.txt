@@ -1,0 +1,37 @@
+FINAL HIV NFLG within-host variation analysis pipeline
+
+Core pipeline status: FROZEN / PASS
+Scientific algorithms: frozen
+Publication interface: finalized
+Historical validation branches: removed from production code
+Legacy V3/V7 public schema identifiers: removed
+
+Patient-specific consensus records: 11
+Directional mutation calls: 3287
+SNP calls: 2477
+DEL base calls: 592
+INS base calls: 218
+DEL events: 44
+INS events: 31
+Total INDEL events: 75
+
+Figure2 SNP loci/anchors: 973
+Recurrent SNP loci: 52
+Same-substitution recurrent loci: 21
+Mixed-substitution recurrent loci: 31
+DEL loci: 32
+INS anchors: 13
+
+P18 large missing region: HXB2 3487-5903
+P18 missing-region length: 2417 nt
+
+Step05 QC: PASS
+Step06 QC: PASS
+Step07 QC: PASS
+Step08 QC: PASS
+B2a downstream regression: PASS
+B2b schema-neutral semantic regression: PASS
+
+Scientific results: FROZEN
+Production pipeline: FINAL
+Further algorithm/schema refactoring: STOP

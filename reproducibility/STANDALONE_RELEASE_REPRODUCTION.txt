@@ -1,0 +1,11 @@
+STANDALONE FINAL-RELEASE REPRODUCTION
+
+Standalone runner exit status: PASS
+Release QC: PASS
+Independent release QC: PASS
+Core Step01-08 SHA256: PASS
+
+The final release runner was executed from the standalone release root using the frozen input dataset.
+All production steps completed successfully and the final release QC passed.
+
+STANDALONE_RELEASE_REPRODUCTION: PASS

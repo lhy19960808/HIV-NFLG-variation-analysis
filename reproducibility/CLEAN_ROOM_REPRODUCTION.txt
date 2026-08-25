@@ -1,0 +1,20 @@
+CLEAN-ROOM RELEASE REPRODUCTION
+
+Pipeline exit status: PASS
+Independent release QC: PASS
+Step05 scientific outputs: BYTE-IDENTICAL
+Step06 scientific outputs: BYTE-IDENTICAL
+Step07 scientific outputs: BYTE-IDENTICAL
+Step08 scientific outputs: BYTE-IDENTICAL
+Step07 source manifest: identical after normalization of run-directory prefix
+
+Directional mutation calls: 3287
+SNP calls: 2477
+DEL events: 44
+INS events: 31
+SNP loci/anchors: 973
+Recurrent SNP loci: 52
+DEL loci: 32
+INS anchors: 13
+
+CLEAN_ROOM_REPRODUCTION: PASS
